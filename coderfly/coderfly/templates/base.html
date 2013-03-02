@@ -10,11 +10,6 @@
     <!-- Le styles -->
     <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
     <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -25,24 +20,68 @@
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ STATIC_URL }}ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ STATIC_URL }}ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ STATIC_URL }}ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="{{ STATIC_URL }}ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="{{ STATIC_URL }}ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ STATIC_URL }}ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="{{ STATIC_URL }}ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="{{ STATIC_URL }}ico/favicon.png">
   </head>
 
-  <body>
-    <div class="container-narrow">
-
-      <hr>
-      <div class="jumbotron">
-          <h1>Coder <img class="bee" src="{{ STATIC_URL }}img/bee.jpg" width="150" /></h1>
-        <p class="lead">A tight-knit community of pretty fly coders</p>
-        <a class="btn btn-large btn-success" href="#">Find out more</a>
-      </div>
-      <hr>
+    <body>
+        <div class="container-narrow">
+            <div class="jumbotron">
+                <h1>Coder <img class="bee" src="{{ STATIC_URL }}img/bee.jpg" width="150" /></h1>
+                <p class="lead">A tight-knit community of pretty fly coders</p>
+            </div>
+            <hr>
+            <div id="about" class="jumbotron">
+                <div type="button" class="btn btn-large btn-success">
+                    <i class="icon-white icon-star"></i> Simple brochure sites
+                </div>
+                <br/>
+                <div type="button" class="btn btn-large btn-success">
+                    <i class="icon-white icon-star"></i> Highly integrated web applications
+                </div>
+                <br/>
+                <div type="button" class="btn btn-large btn-success">
+                    <i class="icon-white icon-star"></i> Partnership and collaboration
+                </div>
+            </div>
+            <hr>
+            <div id="contact" class="jumbotron">
+                <p class="lead">Contact us to see what we can do for you</p>
+                <form action="." method="post" class="form-horizontal">{% csrf_token %}
+                    <div class="control-group">
+                        <div class="controls name">
+                            <input name="name" type="text" id="inputName" placeholder="Name">
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls email">
+                            <input name="email" type="text" id="inputEmail" placeholder="Email">
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls message">
+                            <textarea class="textbox" rows="5" name="message" placeholder="Message"></textarea>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input class="btn btn-info submit" type="submit" value="Submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  <div class="footer">
+  </div>
 
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{ STATIC_URL }}js/jquery.js"></script>
+    <script src="{{ STATIC_URL }}js/underscore.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap-transition.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap-alert.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap-modal.js"></script>
@@ -56,5 +95,37 @@
     <script src="{{ STATIC_URL }}js/bootstrap-carousel.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap-typeahead.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            $("form").submit(function(event) {
+                $(".error").removeClass("error");
+                event.preventDefault();
+                var data = $(this).serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "/",
+                    data: data,
+                    success: function(data) {
+                        if (data.email_failed) {
+                            alert("An error occured while trying to send an email. Please try again later.");
+                        } else {
+                            if (data.success) {
+                                $("form").fadeOut(300, function() {
+                                   $(this).html("Thank you for your message. We will get back to you shortly.");
+                                   $(this).fadeIn();
+                               });
+                            } else {
+                                _.map(data.error_fields, function(value, key) {
+                                    $("."+key).parent().addClass("error");
+                                });
+                            }
+                        }
+                    },
+                    dataType: "json"
+                });
+                return false;
+            });
+        });
+    </script>
   </body>
 </html>

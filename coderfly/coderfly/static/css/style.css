@@ -1,5 +1,5 @@
 body {
-    padding-top: 20px;
+    padding-top: 10px;
     padding-bottom: 40px;
 }
 
@@ -14,26 +14,41 @@ body {
 
 /* Main marketing message and sign up button */
 .jumbotron {
-    margin: 60px 0;
+    margin: 20px 0;
     text-align: center;
 }
 .jumbotron h1 {
     font-size: 72px;
     line-height: 1;
+    vertical-align: bottom;
 }
 .jumbotron .btn {
     font-size: 21px;
     padding: 14px 24px;
 }
 
-/* Supporting marketing content */
-.marketing {
-    margin: 60px 0;
-}
-.marketing p + h4 {
-    margin-top: 28px;
+.bee {
 }
 
-.bee {
-    margin-top: -50px;
+form {
+    margin: 0 auto;
+    height: 280px;
+}
+
+#about div {
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.form-horizontal .controls {
+    margin-left: 0;
+}
+
+textarea {
+    width: 300px;
+}
+
+textarea {
+    padding: 10px;
 }

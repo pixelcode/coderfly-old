@@ -153,3 +153,6 @@ LOGGING = {
         },
     }
 }
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 587
