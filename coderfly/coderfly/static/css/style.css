@@ -9,7 +9,12 @@ body {
 .navbar .nav>li>a {
     padding: 5px 10px 5px;
 }
-  /* Custom container */
+
+.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+    width: 940px;
+}
+
+/* Custom container */
 .container-narrow {
     margin: 0 auto;
     max-width: 700px;
