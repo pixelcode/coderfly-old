@@ -1,8 +1,14 @@
 body {
-    padding-top: 10px;
     padding-bottom: 40px;
 }
 
+.navbar-inner {
+    min-height: 30px;
+}
+
+.navbar .nav>li>a {
+    padding: 5px 10px 5px;
+}
   /* Custom container */
 .container-narrow {
     margin: 0 auto;
@@ -51,4 +57,15 @@ textarea {
 
 textarea {
     padding: 10px;
+}
+
+ul#nav {
+    list-style: none;
+    float: right;
+    width: 100%;
+}
+
+#nav li {
+    float: right;
+    padding: 0 10px;
 }
