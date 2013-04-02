@@ -11,6 +11,8 @@
     <meta name="author" content="CoderFly">
 
     <!-- Le styles -->
+    <link href='http://fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
     <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet">
@@ -45,22 +47,21 @@
         </div>
         <div class="container">
             {% block header %}
-            <div class="jumbotron">
-                <h1>Coder <img class="bee" src="{{ STATIC_URL }}img/bee.jpg" width="150" /></h1>
+            <div id="header" class="jumbotron">
+                <h1>Coder <img class="bee" src="{{ STATIC_URL }}img/bee.jpg" width="120" /></h1>
                 <p class="lead">A tight-knit community of pretty fly coders</p>
             </div>
             {% endblock %}
             {% block content %}
             <hr>
             <div id="about" class="jumbotron">
-                <div type="button" class="btn btn-large btn-success">Brochure sites</div><br/>
-                <div type="button" class="btn btn-large btn-success">Integrated web applications</div><br/>
-                <div type="button" class="btn btn-large btn-success">Agile development</div><br/>
-                <div type="button" class="btn btn-large btn-success">Collaboration</div>
+                <div type="button" class="btn btn-large btn-success">Fast</div>
+                <div type="button" class="btn btn-large btn-success">Friendly</div>
+                <div type="button" class="btn btn-large btn-success">Fun</div><br/>
             </div>
             <hr>
             <div id="contact" class="jumbotron">
-                <p class="lead">Contact us to see what we can do for you</p>
+                <p class="lead">Tell us what you want and we will make it work</p>
                 <form action="." method="post" class="form-horizontal">{% csrf_token %}
                     <div class="control-group">
                         <div class="controls name">
