@@ -13,6 +13,7 @@
     <!-- Le styles -->
     <link href='http://fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
     <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet">
@@ -56,12 +57,14 @@
             <hr>
             <div id="about" class="jumbotron">
                 <div type="button" class="btn btn-large btn-success">Fast</div>
+                <img class="flower" src="{{ STATIC_URL }}img/flower.png" />
                 <div type="button" class="btn btn-large btn-success">Friendly</div>
-                <div type="button" class="btn btn-large btn-success">Fun</div><br/>
+                <img class="flower" src="{{ STATIC_URL }}img/flower.png" />
+                <div type="button" class="btn btn-large btn-success">Fun!</div>
             </div>
             <hr>
             <div id="contact" class="jumbotron">
-                <p class="lead">Tell us what you want and we will make it work</p>
+                <p class="lead">Tell us what you want and we'll help make it work</p>
                 <form action="." method="post" class="form-horizontal">{% csrf_token %}
                     <div class="control-group">
                         <div class="controls name">

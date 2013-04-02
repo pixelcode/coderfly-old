@@ -49,8 +49,9 @@ form {
 }
 
 #about div {
+    font-family: 'Julius Sans One', sans-serif;
     margin: 10px;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 200;
 }
 
@@ -102,4 +103,8 @@ ul#nav {
 
 .control-group {
     margin-bottom: 10px !important;
+}
+
+.flower {
+    margin: -10px 10px 0 0;
 }
