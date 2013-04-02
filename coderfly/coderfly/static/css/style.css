@@ -70,3 +70,28 @@ ul#nav {
     float: right;
     padding: 0 10px;
 }
+
+.header h1 a {
+    vertical-align: bottom;
+}
+
+.lead, .header {
+    text-transform: capitalize;
+}
+
+#resume .lead {
+    font-size: 24px;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+#resume address .lead {
+    font-size: 28px;
+    font-weight: 400;
+}
+
+#resume .lead, #resume address {
+    margin: 0;
+}
+
+

@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     # Examples:
 
     url(r'^$', 'coderfly.views.home', name='home'),
+    url(r'^resume/$', 'coderfly.views.resume', name='resume'),
 
     # url(r'^ramseydsilva/', include('ramseydsilva.foo.urls')),
 

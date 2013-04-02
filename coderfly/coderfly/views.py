@@ -28,3 +28,7 @@ def home(request):
         return HttpResponse(simplejson.dumps(to_return), mimetype="application/json")
     context = {}
     return render_to_response("index.html", context, context_instance = RequestContext(request))
+
+def resume(request):
+    context = {}
+    return render_to_response("resume.html", context, context_instance = RequestContext(request))
